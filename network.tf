@@ -1,5 +1,5 @@
 locals {
-
+  ni_names = ["int1", "int2", ]
   network_security_rules = [
     {
       name                       = "allow_http"
@@ -87,6 +87,4 @@ resource "azurerm_network_interface" "main" {
   }
 }
 
-locals {
-  ni_names = ["int1", "int2", ]
-}
+
