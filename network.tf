@@ -1,5 +1,5 @@
 locals {
-  ni_names = ["int1", "int2", ]
+  nic_names = ["int1", "int2", ]
   network_security_rules = [
     {
       name                       = "allow_http"
@@ -75,7 +75,7 @@ resource "azurerm_subnet" "internal" {
 }
 
 resource "azurerm_network_interface" "main" {
-  for_each            = toset(local.ni_names)
+  for_each            = toset(local.nic_names)
   name                = "${var.prefix}-${each.key}"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
